@@ -1,0 +1,198 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Netpace - Big Data</title>
+    <link rel="icon" href="netpace-icon.ico" type="image/x-icon" sizes="16x16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> </head>
+
+<body>
+    <style>
+        body {
+            background-color: #fff;
+            background-image: url(bg-pattern-xl.png);
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .listitem {
+          margin: 14px;
+          padding: 0px;
+        }
+        .listitem li {
+          font-size: 14px;
+          line-height: 22px;
+          font-weight: normal;
+          color: #666;
+          text-align: left;
+        }
+        .clear {
+          clear: both; height: 0px;
+        }
+
+        .logo {
+            width: 225px;
+        }
+
+        .wrapper {
+            display: table;
+            margin: 40px auto 0;
+            text-align: center;
+        }
+
+        .app-btn {
+            display: inline-block;
+            margin: 0 40px 40px;
+            text-align: left;
+            text-decoration: none;
+            width: 400px;
+            float: left;
+        }
+
+        .launch-btn {
+            background-color: forestgreen;
+            border-radius: 4px;
+            color: #fff;
+            display: table;
+            margin: 10px auto 0;
+            padding: 6px 10px;
+            text-decoration: none;
+        }
+
+        .icon {
+            border: 4px solid #ececec;
+            border-radius: 10px;
+            display: table;
+            margin: 20px auto 15px;
+            position: relative;
+            text-align: center;
+            width: 96%;
+        }
+
+        .title {
+            color: #333;
+            font-size: 22px;
+            text-align: left;
+            font-weight: normal;
+        }
+
+        .product-description {
+            color: #333;
+            font-size: 17px;
+            text-align: center;
+        }
+
+        .image-wrapper {
+            position: relative;
+            display: block;
+            overflow: hidden;
+        }
+
+        .image-wrapper:hover img {
+            -webkit-box-shadow: 1px 0px 10px 0px rgba(50, 50, 50, 0.75);
+            -moz-box-shadow: 1px 0px 10px 0px rgba(50, 50, 50, 0.75);
+            box-shadow: 1px 0px 10px 0px rgba(50, 50, 50, 0.75);
+        }
+
+        .description {
+            font-size: 16px;
+            margin-bottom: 35px;
+        }
+
+        .logo {}
+
+        h2 {
+            color: #b9b9b9;
+            font-size: 40px;
+            font-weight: lighter;
+            text-align: center;
+        }
+        @media screen and (max-width: 975px) {
+          .app-btn {
+              display: table;
+              margin: 10px;
+              text-align: center;
+              width: 45%;
+              float: left;
+          }
+        }
+        @media screen and (max-width: 500px) {
+            body {
+                background-color: #fff;
+                font-family: Arial, Helvetica, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            .logo {
+                width: 180px;
+            }
+            .description {
+                display: table;
+                font-size: 16px;
+                margin: 0 auto;
+                width: 80%;
+            }
+            h2 {
+                font-size: 30px;
+            }
+            .icon:hover {
+                background-color: dimgrey;
+            }
+            .btn-green {
+                width: auto;
+                font-size: 15px;
+            }
+            .btn-blue {
+                width: auto;
+                font-size: 15px;
+            }
+            .app-btn {
+                display: table;
+                margin: 0 auto 40px;
+                text-align: center;
+                width: 250px;
+                float: none;
+            }
+            .wrapper {
+                overflow: hidden;
+            }
+
+        }
+    </style>
+</body>
+<div class="wrapper"> <img src="Netpace-Logo2.png" class="logo">
+    <h2>Big Data Demo Apps</h2>
+    <div href="#" class="app-btn">
+        <a href="/app/#!/finance" class="image-wrapper"> <img src="ehr.jpg" class="icon"> </a>
+        <a href="/app/#!/finance" class="launch-btn"> Launch Demo </a> </div>
+    <div href="#" class="app-btn">
+      <h3 class="title">Stock Price Prediction</h3>
+      <ul class="listitem">
+        <li>Predictive analytics technology</li>
+        <li>Using Historical stock price readings for 40 thousand days</li>
+        <li>Data Integration between Yahoo finace and HDFS with Sqoop</li>
+        <li>MapReduce Implementaion of Monte Carlo Simulations</li>
+        <li>Interactive analysis, drill through, zooming, and attribute highlighting for greater insight</li>
+        <li>Dashboards from any big data source including enterprise</li>
+      </ul>
+    </div>
+    <div class="clear"></div>
+
+    <div href="#" class="app-btn">
+      <a href="/app/#!/health" class="image-wrapper"> <img src="medical.jpg" class="icon"> </a>
+      <a href="/app/#!/health" class="launch-btn" style="background-color:#cacaca;"> Launch Demo </a> </div>
+      <div href="#" class="app-btn">
+        <h3 class="title">EHR Management System</h3>
+        <ul class="listitem">
+          <li>Interactive Electronic Health Records System</li>
+          <li>Easily accessed through the cloud, giving physicians the ability to keep track of scheduling and patient details anywhere</li>
+          <li>Realtime data analytics</li>
+          <li>100 patients, 372 admissions, 5,000 vitals readings and 111,483 lab observations</li>
+          <li>Distributed and resilient Data storage with Hive</li>
+        </ul>
+      </div>
+      <div class="clear"></div>
+</div>
+
+</html>

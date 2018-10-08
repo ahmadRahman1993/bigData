@@ -1,0 +1,263 @@
+<div class="col-md-12 col-xs-12">
+    <div class="x_panel box-border-shadow">
+        <div class="x_content mentor-box">
+            <div class="row">
+                <div class="profile-mentor-col-1"> <img src="images/avatar{{patient.info.gender}}.jpg" class="person-profile-to-mentor"> </div>
+                <div class="profile-mentor-col-2">
+                    <div class="col-md-12"><span class="person-name">{{patient.info.personName}}</span> </div>
+                    <div class="col-md-12 bottom-space-10"><span class="heading-text-color">Age:</span> {{patient.info.age}}</div>
+                    <div class="col-md-12 bottom-space-10"><span class="heading-text-color">Gender:</span> {{patient.info.gender}}</div>
+                    <div class="col-md-12 bottom-space-10"><span class="heading-text-color">DOB:</span> {{patient.info.dob|date : "MMM. dd, y"}}</div>
+                    <div class="col-md-12"><span class="heading-text-color">Contact :</span> {{patient.info.contact}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <uib-tabset active="active">
+                    <uib-tab index="0" heading="Personal Info" ng-init="getPatientdata()">
+                        <form class="form-horizontal form-label-left">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Name : </label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.info.personName" ng-required="true" type="text" placeholder="Enter Patient's Name"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Age  :</label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.info.age" ng-required="true" type="text" placeholder="Enter Patient's Age"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient contact : </label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.info.contact" ng-required="true" type="text" placeholder="Enter Patient's Contact Number"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Date of Birth  :</label>
+                                <input uib-datepicker-popup class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.info.dob" is-open="popup2.opened" datepicker-options="dateOptions"
+                                    ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient gender :</label>
+
+                                <select class="col-md-5 col-sm-5 col-xs-12" name="repeatSelect" id="repeatSelect" ng-model="patient.info.gender">
+      <option ng-repeat="option in data.availableOptions" value="{{option.name}}">{{option.name}}</option>
+    </select>
+
+
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient maritalStatus :</label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.info.maritalStatus" ng-required="true" type="text" placeholder="Enter Patient's Marital Status"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Language :</label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.info.pLanguage" ng-required="true" type="text" placeholder="Enter Patient's Language"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient race :</label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.info.race" ng-required="true" type="text" placeholder="Enter Patient's Race'"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Health Percentage :</label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.info.pPercent" ng-required="true" type="text" placeholder="Enter Patient's Health Percentage"
+                                />
+                            </div>
+                            <div class="form-group margin-20-0">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12"></label>
+                                <button class="btn " ng-click="clearPatientInfo()">Reset</button>
+                                <button class="btn button-theme " ng-click="updatePatientInfo()">Update Patient</button>
+                                <a ng-show="varngshow" layout="row" layout-sm="column" layout-align="space-around">
+                                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                                </a>
+                                <span ng-show="showGreeting ">{{msg}}</span>
+                            </div>
+                        </form>
+                    </uib-tab>
+                    <uib-tab index="1" heading="Vitals">
+                        <form class="form-horizontal form-label-left">
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Height: </label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.vitals.height" type="text" placeholder="Enter Patient's Height"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Weight  :</label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.vitals.weight" type="text" placeholder="Enter Patient's Weight"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Pulse : </label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.vitals.pulse" type="text" placeholder="Enter Patient's Pulse"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Blood Pressure Lower  :</label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.vitals.bpresd" type="text" placeholder="Enter Patient's Blood Pressure"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Blood Pressure Upper  :</label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.vitals.bpresu" type="text" placeholder="Enter Patient's Blood Pressure"
+                                />
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Body Temperature :</label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.vitals.btemp" type="text" placeholder="Enter Patient's Body Temperature"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient AdmissionStartDate  :</label>
+                                <input uib-datepicker-popup class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.vitals.vdate" is-open="popup1.opened" datepicker-options="dateOptions"
+                                    ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+                            </div>
+                            <div class="form-group margin-20-0">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12"></label>
+                                <button class="btn " ng-click="updateInfo()">Reset</button>
+                                <button class="btn button-theme " ng-click="updateVitals()">Save Vitals</button>
+                                <a ng-show="varngshow" layout="row" layout-sm="column" layout-align="space-around">
+                                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                                </a>
+                                <span ng-show="showGreeting ">{{msg}}</span>
+                            </div>
+                        </form>
+                    </uib-tab>
+                    <uib-tab index="2" heading="Addmission">
+                        <form class="form-horizontal form-label-left">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Admission Id: </label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.admission.addmissionId" type="text" placeholder="Enter Patient's Admission Id"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient AdmissionStartDate  :</label>
+                                <input uib-datepicker-popup class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.admission.startDate" is-open="popup1.opened"
+                                    datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open1()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Patient Admission End Date  :</label>
+                                <input uib-datepicker-popup class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.admission.endDate" is-open="popup2.opened"
+                                    datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+                            </div>
+                            <div class="form-group margin-20-0">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12"></label>
+
+                                <button class="btn " ng-click="clearAdmission()">Reset</button>
+                                <button class="btn button-theme " ng-click="updateAdmission()">Save Admission Data</button>
+                                <a ng-show="varngshow" layout="row" layout-sm="column" layout-align="space-around">
+                                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                                </a>
+                                <span ng-show="showGreeting ">{{msg}}</span>
+                            </div>
+                        </form>
+                    </uib-tab>
+                    <uib-tab index="3" heading="Lab Data">
+                        <form class="form-horizontal form-label-left">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Admission ID: </label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.labdata.addmissionId" type="text" placeholder="Enter Lab Name"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Lab Name: </label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.labdata.labName" type="text" placeholder="Enter Lab Name" />
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Lab Value :</label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.labdata.labValue" type="text" placeholder="Enter Lab Value"
+                                />
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Lab Units : </label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.labdata.labUnits" type="text" placeholder="Enter Lab Units"
+                                />
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Date :</label>
+                                <input uib-datepicker-popup class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.labdata.lDate" is-open="popup2.opened"
+                                    datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                                <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+          </span>
+                            </div>
+                            <div class="form-group margin-20-0">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12"></label>
+
+                                <button class="btn " ng-click="resetLabs()">Reset</button>
+                                <button class="btn button-theme " ng-click="updateLabs()">Save Lab</button>
+                                <a ng-show="varngshow" layout="row" layout-sm="column" layout-align="space-around">
+                                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                                </a>
+                                <span ng-show="showGreeting ">{{msg}}</span>
+                            </div>
+                        </form>
+                    </uib-tab>
+
+                    <uib-tab index="4" heading="Diagnosis">
+                        <form class="form-horizontal form-label-left">
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Primary Diagnosis Code: </label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.diagnosis.dcode" type="text" placeholder="Enter Patient's Primary Diagnosis Code"
+                                />
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Primary Diagnosis Description  :</label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.diagnosis.diagnosis" type="text" placeholder="Enter Patient's Primary Diagnosis Description"
+                                />
+                            </div>
+
+
+                            <div class="form-group">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12">Addmission ID : </label>
+                                <input class="col-md-5 col-sm-5 col-xs-12" ng-model="patient.diagnosis.addmissionId" type="text" placeholder="Enter Patient's Addmission ID"
+                                />
+                            </div>
+
+                            <div class="form-group margin-20-0">
+                                <label class="control-label col-md-4 col-sm-4 col-xs-12"></label>
+
+                                <button class="btn " ng-click="clearDiagnosis()">Reset</button>
+                                <button class="btn button-theme " ng-click="updateDiagnosis()">Save Diagnosis</button>
+                                <a ng-show="varngshow" layout="row" layout-sm="column" layout-align="space-around">
+                                    <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+                                </a>
+                                <span ng-show="showGreeting ">{{msg}}</span>
+                            </div>
+                        </form>
+                    </uib-tab>
+                </uib-tabset>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,234 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel">
+            <div class="x_content">
+                <div class="col-md-12 col-xs-12">
+                    <div class="x_panel">
+                        <div class="x_content">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="col-md-12"><span class="person-name">{{patient.personName}}</span> </div>
+                                    <div class="col-md-12 bottom-space-10"><span class="heading-text-color">Age:</span> {{patient.age}}</div>
+                                    <div class="col-md-12 bottom-space-10"><span class="heading-text-color">Gender:</span> {{patient.gender}}</div>
+                                    <div class="col-md-12 bottom-space-10"><span class="heading-text-color">DOB:</span> {{patient.dob|date : "MMM. dd, y"}}</div>
+                                    <div class="col-md-12"><span class="heading-text-color">Contact:</span> {{patient.contact}}</div>
+                                </div>
+                                <div class="col-md-4 text-center"> <img ng-src="images/avatar{{patient.gender}}.jpg" class="circle"> </div> <a href="#!/health/patient/{{patient.personId}}/edit"
+                                    class="pull-right view-detail">Edit</a> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+        <div class="col-md-12 col-xs-12">
+        <div class="x_panel box-border-shadow">
+            <div class="x_content padding-55">
+                <div class="row">
+                    <div class="col-md-3  col-xs-6">
+                        <div class="col-md-12 bottom-space-10 margin-auto-mobile"><span class="heading-text-color font-18">Age:</span>
+                             <div class="font-30">{{patient.age}} Y</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3  col-xs-6">
+                        <div class="col-md-12 bottom-space-10 margin-auto-mobile"><span class="heading-text-color font-18">Weight</span>
+                            <div class="font-30">{{bmiDATA.weight| number:3}} kg </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3  col-xs-6 text-center">
+                        <div class="col-md-12 bottom-space-10 margin-auto-mobile"> <span class="heading-text-color font-18">BMI</span>
+                            <div class="font-30"> {{bmiDATA.bmi| number:3}} kg/m2</div>
+                            <!--<div class="font-14 red-color-txt">Uderweight(Risk)</div>-->
+                                    <div ng-class="((bmiDATA.bmi >=18.5) && (bmiDATA.bmi <=24.9))  ? 'font-14 green-color-txt':'font-14 red-color-txt'">{{((bmiDATA.bmi >=18.5) && (bmiDATA.bmi <=24.9))? 'Normal': 'Abnormal'}}</div>
+
+
+                        </div>
+                    </div>
+                    <div class="col-md-3  col-xs-6 text-center">
+                        <div class="col-md-12 bottom-space-10 margin-auto-mobile"><span class="heading-text-color font-18">Height</span>
+                            <div class="font-30">{{bmiDATA.height| number:3}} cm</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--   <div class="x_panel  ">
+       <div class="col-xs-12 no-border-xpanel">
+            <div class="section-heading blue-bg"> Timeline </div>
+            <div class="x_panel accordion-panel-box-no-padding">
+                <div class="x_content">
+                    <div class="col-xs-12">
+                        <div class="x_panel  ">
+                            <div class="panel">
+                                <div class="col-xs-3 text-right padding-right-30 hide-on-mobile ">
+                                    <div class="timeline-text">10-03-2016 06:51</div>
+                                    <div class="timeline-date">10- Mar</div>
+                                </div>
+                                <div class="col-xs-9 accordion-left-panel">
+                                    <a id="headingOne" class="panel-heading" data-toggle="collapse" data-target="#demo">
+                                    Medical Diagnosis | ehrscape
+                                </a>
+                                    <div id="demo" class="collapse">
+                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                            <div class="panel-body">
+                                                <div class="block margin-bottom-15">
+                                                    <div class="accordion-inner-heading"> Problem/Diagnosis: </div> Acute lorem
+                                                    <div class="accordion-inner-small-heading"> Problem/Diagnosis: </div>
+                                                    <div class="accordion-inner-small-detial"> Acute lorem </div>
+                                                </div>
+                                                <div class="block margin-bottom-15">
+                                                    <div class="accordion-inner-small-heading"> Problem/Diagnosis: </div>
+                                                    <div class="accordion-inner-small-detial"> Acute lorem </div>
+                                                </div>
+                                                <div class="block margin-bottom-15">
+                                                    <div class="accordion-inner-small-heading"> Problem/Diagnosis: </div>
+                                                    <div class="accordion-inner-small-detial"> Acute lorem </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel">
+                                <div class="col-xs-3 text-right padding-right-30 hide-on-mobile ">
+                                    <div class="timeline-text">11-03-2016 02:51</div>
+                                    <div class="timeline-date">11- Mar</div>
+                                </div>
+                                <div class="col-xs-9 accordion-left-panel">
+                                    <a id="headingTwo" class="panel-heading" data-toggle="collapse" data-target="#demo2">
+                                 Laboratory Report | ehrscape
+                                </a>
+                                    <div id="demo2" class="collapse">
+                                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingTwo">
+                                            <div class="panel-body">
+                                                <div class="block margin-bottom-15">
+                                                    <div class="accordion-inner-heading"> Problem/Diagnosis: </div> Acute lorem
+                                                    <div class="accordion-inner-small-heading"> Problem/Diagnosis: </div>
+                                                    <div class="accordion-inner-small-detial"> Acute lorem </div>
+                                                </div>
+                                                <div class="block margin-bottom-15">
+                                                    <div class="accordion-inner-small-heading"> Problem/Diagnosis: </div>
+                                                    <div class="accordion-inner-small-detial"> Acute lorem </div>
+                                                </div>
+                                                <div class="block margin-bottom-15">
+                                                    <div class="accordion-inner-small-heading"> Problem/Diagnosis: </div>
+                                                    <div class="accordion-inner-small-detial"> Acute lorem </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+    <div class="col-md-12">
+        <div class="section-heading blue-bg"> Lab Results</div>
+        <div class="x_panel">
+            <div class="col-xs-12 no-border-xpanel">
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <nvd3 options="rowCollectionOptions" api="api1"></nvd3>
+                <div ng-init="getResults1()">
+                    <table st-table="displayedCollection" st-safe-src="rowCollection" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Value</th>
+                                <th>Unit</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="row in displayedCollection">
+                                <td>{{row.labName}}</td>
+                                <td>{{row.labValue}}</td>
+                                <td>{{row.labUnits}}</td>
+                                <td>{{row.lDate|date : "dd/MM/y "}}</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="5" class="text-center">
+                                    <div st-pagination="" st-items-by-page="20" st-displayed-pages="20"></div>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-6">
+        <div class="section-heading blue-bg"> Blood Pressure </div>
+        <div class="x_panel">
+            <div class="col-xs-12 no-border-xpanel">
+
+                <div class="clearfix"></div>
+            </div>
+            <div ng-init="getResultsBlood()">
+                <div class="x_content">
+                    <nvd3 options="BloodPressureOptions" data="BloodPressure" api="api2"></nvd3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-6">
+        <div class="section-heading blue-bg">Body Temperature </div>
+        <div class="x_panel">
+            <div class="col-xs-12 no-border-xpanel">
+
+                <div class="clearfix"></div>
+            </div>
+            <div ng-init="getResults2()">
+                <div class="x_content">
+                    <nvd3 options="BodyTempOptions" data="BodyTemp" api="api3"></nvd3>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-6">
+        <div class="section-heading blue-bg">Height </div>
+        <div class="x_panel">
+            <div class="col-xs-12 no-border-xpanel">
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <nvd3 options="HeightOptions" data="Height" api="api4"></nvd3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-6">
+        <div class="section-heading blue-bg">Pulse </div>
+        <div class="x_panel">
+            <div class="col-xs-12 no-border-xpanel">
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <nvd3 options="PulseOptions" data="Pulse" api="api5"></nvd3>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xs-6">
+        <div class="section-heading blue-bg"> Weight</div>
+        <div class="x_panel">
+            <div class="col-xs-12 no-border-xpanel">
+
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <nvd3 options="WeightOptions" data="Weight" api="api6"></nvd3>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,36 @@
+{
+    "values": [
+        {
+            "Name": "S-Cholesterol",
+            "LOINC": "2093-3",
+            "NormalRange": "< 200",
+            "Value": "187",
+            "Unit": "mg/dL",
+            "Time": "1197226800000"
+        },
+        {
+            "Name": "S-HDL-Cholesterol",
+            "LOINC": "30 - 150",
+            "NormalRange": "< 200",
+            "Value": "36",
+            "Unit": "mg/dL",
+            "Time": "1197226800000"
+        },
+        {
+            "Name": "S-CRP",
+            "LOINC": "< 5",
+            "NormalRange": "< 200",
+            "Value": "6",
+            "Unit": "mg/L",
+            "Time": "1197226800000"
+        },
+        {
+            "Name": "S-CRP",
+            "LOINC": "< 5",
+            "NormalRange": "< 200",
+            "Value": "12",
+            "Unit": "mg/L",
+            "Time": "1197226800000"
+        }
+    ]
+}

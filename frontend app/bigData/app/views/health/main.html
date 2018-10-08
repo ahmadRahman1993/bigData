@@ -1,0 +1,72 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="row">
+            <div class="col-xs-12 margin-bottom-15 ">
+                <div class="x_panel search-main-content border-rad-4px no-padding">
+                    <div class="x_content padding-20">
+                        <div class="">
+                            <div class="col-md-4 col-xs-12  col-sm-6 ">
+                                <div class="col-md-12   no-padding"> Patient Name </div>
+                                <input ng-model="searchParamenters.name" type="text" placeholder="Enter Patient's Name'">
+                            </div>
+
+                            <div class="col-md-2 col-xs-12  col-sm-6 ">
+                                <div class="col-md-12 no-padding"> Age </div>
+                                <input ng-model="searchParamenters.age" type="text" placeholder="Enter Patient's Age">
+                            </div>
+
+                            <div class="col-md-4 col-xs-12  col-sm-6 ">
+                                <div class="col-md-12 no-padding"> Mobile Number </div>
+                                <input ng-model="searchParamenters.contact" type="tel" placeholder="Enter Patient's contact number (03211234567)">
+                            </div>
+
+                            <div class="col-md-2 col-xs-12  col-sm-6 ">
+                                <div class="col-md-12"> &nbsp </div>
+                                <input type="button" value="Search" class="red-color border-zero btn-standard" ng-click='search()'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-12 col-xs-12">
+                <div class="patient-search-result-headline"> Latest Entries </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-4 col-sm-4 user-search-resule-boxes " ng-repeat="patient in patients">
+                <div class="x_panel box-border-shadow">
+                    <div class="x_content">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="col-md-12 col-xs-12"><span class="person-name">{{patient.firstName}}</br> {{patient.lastName}}</span>
+                                </div>
+                                <div class="col-md-12 col-xs-12 bottom-space-10"><span class="heading-text-color">Age:</span> {{patient.age}}</div>
+                                <div class="col-md-12 col-xs-12 bottom-space-10"><span class="heading-text-color">Gender:</span> {{patient.gender}}</div>
+                                <div class="col-md-12 col-xs-12 bottom-space-10"><span class="heading-text-color">DOB:</span> {{patient.dob|date : "MMM. dd, y"}}</div>
+                                <div class="col-md-12 col-xs-12" ng-show="patient.contact!=NULL"><span class="heading-text-color">Contact:</span> {{patient.contact}}</div>
+                            </div>
+
+                            <a>
+                                <div class="col-md-4 col-xs-12 image-circle-box"> <img ng-src="images/avatar{{patient.gender}}.jpg" class="circle pods-user-image">                                    </div>
+                            </a>
+
+                            <div class="col-xs-12">
+                                <a href="#!health/detail/{{patient.personId}}" class="pull-right view-detail">View Details</a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

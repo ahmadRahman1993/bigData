@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
+  <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css">
+  <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+  <link href="vendor/owl-carousel/assets/owl.carousel.css" rel="stylesheet" />
+  <link rel="icon" href="netpace-icon.ico" type="image/x-icon" sizes="16x16">
+  <link rel="stylesheet" ng-href="{{me.current.parent}}">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+
+
+</head>
+
+<body class="nav-md">
+
+  <!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+  <div class="container body">
+    <div class="main_container">
+      <div class="col-md-3 left_col">
+        <div class="left_col scroll-view">
+          <div class="navbar nav_title" style="border: 0;"> <a href="../index.html" class="site_title"><i class="fa fa-paw"></i> <span>Netpace</span></a> </div>
+          <div class="clearfix"></div>
+
+          <!-- sidebar menu -->
+          <div id="sidebar-menu" class="horizontal-collapse main_menu_side hidden-print main_menu">
+            <div class="menu_section">
+              <!--  <h3>General</h3> -->
+              <ul class="nav side-menu">
+                <li ng-show="me.current.id==1" ng-class="{'menu-active': $route.current.activetab == 'financehome'}"><a href="#!/finance"><i class="fa fa-dashboard"></i> Dashboard </a> </li>
+                <li ng-show="me.current.id==1" ng-class="{'menu-active': $route.current.activetab == 'financecompanies'}"><a href="#!/finance/companies"><i class="fa fa-line-chart"></i>Active Stocks</a> </li>
+                <li ng-show="me.current.id==1" ng-class="{'menu-active': $route.current.activetab == 'financeindicator'}"><a><i class="fa fa-pie-chart"></i> Industry Indicators</a> </li>
+                <li ng-show="me.current.id==1" ng-class="{'menu-active': $route.current.activetab == 'financescreening'}"><a><i class="fa fa-bar-chart"></i> Stock Screening</a> </li>
+
+                <li ng-show="me.current.id==2" ng-class="{'menu-active': $route.current.activetab == 'healthhome'}"><a href="#!/health"><i class="fa fa-dashboard"></i> Dashboard </a> </li>
+                <li ng-show="me.current.id==2" ng-class="{'menu-active': $route.current.activetab == 'healthPatient'}"><a href="#!/health/patient/add"><i class="fa fa-wheelchair"></i>Add a Patient</a> </li>
+                <li ng-show="me.current.id==2" class=""><a><i class="fa fa-ambulance"></i> Transfers </a> </li>
+                <li ng-show="me.current.id==2" class=""><a><i class="fa fa-users"></i>Staff</a> </li>
+                <li ng-show="me.current.id==2" class=""><a><i class="fa fa-heartbeat"></i> Labs </a> </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- top navigation -->
+      <div class="top_nav">
+        <div class="nav_menu">
+          <nav class="" role="navigation">
+            <div class="nav toggle"> <a id="menu_toggle"><i class="fa fa-bars"></i></a> </div>
+            <ul class="nav navbar-nav navbar-right">
+              <li class="">
+                <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false"> <img src="images/img.jpg" alt="">Talha Zahid <span class=" fa fa-angle-down"></span> </a>
+                <ul class="dropdown-menu dropdown-usermenu animated fadeInDown pull-right">
+                  <li><a href="javascript:;">  Profile</a> </li>
+                  <li>
+                    <a href="javascript:;"> <span class="badge bg-red pull-right">50%</span> <span>Settings</span> </a>
+                  </li>
+                  <li> <a href="javascript:;">Help</a> </li>
+                  <li><a href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a> </li>
+                </ul>
+              </li>
+              <li role="presentation" class="dropdown">
+                <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false"> <i class="fa fa-envelope-o"></i> <span class="badge bg-green">6</span> </a>
+                <ul id="menu1" class="dropdown-menu list-unstyled msg_list animated fadeInDown" role="menu">
+                  <li>
+                    <a> <span class="image">
+                <img src="images/img.jpg" alt="Profile Image" />
+              </span> <span>
+                <span>John Smith</span> <span class="time">3 mins ago</span> </span> <span class="message">
+                  Film festivals used to be do-or-die moments for movie makers. They were where...
+                </span> </a>
+                  </li>
+                  <li>
+                    <a> <span class="image">
+                  <img src="images/img.jpg" alt="Profile Image" />
+                </span> <span>
+                  <span>John Smith</span> <span class="time">3 mins ago</span> </span> <span class="message">
+                    Film festivals used to be do-or-die moments for movie makers. They were where...
+                  </span> </a>
+                  </li>
+                  <li>
+                    <a> <span class="image">
+                    <img src="images/img.jpg" alt="Profile Image" />
+                  </span> <span>
+                    <span>John Smith</span> <span class="time">3 mins ago</span> </span> <span class="message">
+                      Film festivals used to be do-or-die moments for movie makers. They were where...
+                    </span> </a>
+                  </li>
+                  <li>
+                    <a> <span class="image">
+                      <img src="images/img.jpg" alt="Profile Image" />
+                    </span> <span>
+                      <span>John Smith</span> <span class="time">3 mins ago</span> </span> <span class="message">
+                        Film festivals used to be do-or-die moments for movie makers. They were where...
+                      </span> </a>
+                  </li>
+                  <li>
+                    <div class="text-center">
+                      <a href="inbox.html"> <strong>See All Alerts</strong> <i class="fa fa-angle-right"></i> </a>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <!-- /top navigation -->
+      <div class="right_col" role="main">
+        <div class="col-md-12 col-xs-12 margin-bottom-15 white-bg border-rad-4px" ng-show="me.current.id==1">
+
+          <div class="row tile_count" ng-controller="financeHighlightsCtrl">
+            <wrap-owlcarousel class="owl-carousel animated flipInY col-md-3 col-sm-4 col-xs-6 tile_stats_count" data-options="{
+                rtl: true,
+                loop: true,
+                margin: 10,
+                nav: true,
+                center: true,
+                autoPlay: true,
+                items : 4,
+                itemsDesktop : [1199,3], itemsDesktopSmall : [650,3]
+              }">
+              <div owl-carousel-item ng-repeat="slide in slides" class="item">
+                <div class="left"></div>
+                <div class="right">
+                  <div ng-class="slide.rateChange >=0 ? 'count-circles bg-green':'count-circles bg-red'"><i ng-class="slide.rateChange >=0 ? 'fa fa-arrow-up white count-circles-icon-font-size':'fa fa-arrow-down white count-circles-icon-font-size'"></i></div>
+                  <span class="count_top"><i ng-class="slide.rateChange >=0 ? 'fa fa-arrow-up green':'fa fa-arrow-down red'"></i> {{slide.stock}}</span>
+                  <div class="count">{{slide.currentValue}}</div> <span ng-class="slide.rateChange >=0 ? 'count_bottom green':'count_bottom red'">{{slide.rateChange}}%</span>                  </div>
+              </div>
+            </wrap-owlcarousel>
+          </div>
+
+        </div>
+        <br>
+        <div ng-view></div>
+
+
+      </div>
+    </div>
+  </div>
+  <!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-material/angular-material.min.js"></script>
+  <script src="bower_components/angular-messages/angular-messages.min.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+
+  <script src="bower_components/d3/d3.js"></script>
+  <script src="bower_components/nvd3/build/nv.d3.js"></script>
+  <!-- or use another assembly -->
+  <script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="bower_components/angular-smart-table/dist/smart-table.min.js"></script>
+  <script src="vendor/owl-carousel/owl.carousel.min.js"></script>
+  <script src="app.js"></script>
+  <script src="controller/financeController.js"></script>
+  <script src="controller/healthController.js"></script>
+  <script src="services/services.js"></script>
+  <script>
+$(document).ready(function(){
+  $('#menu_toggle').click(function () {
+    if ($('body').hasClass('nav-md')) {
+        $('body').removeClass('nav-md').addClass('nav-sm');
+        $('.left_col').removeClass('scroll-view').removeAttr('style');
+        $('.sidebar-footer').hide();
+
+        if ($('#sidebar-menu li').hasClass('active')) {
+            $('#sidebar-menu li.active').addClass('active-sm').removeClass('active');
+        }
+    } else {
+        $('body').removeClass('nav-sm').addClass('nav-md');
+        $('.sidebar-footer').show();
+
+        if ($('#sidebar-menu li').hasClass('active-sm')) {
+            $('#sidebar-menu li.active-sm').addClass('active').removeClass('active-sm');
+        }
+    }
+  });
+
+});
+</script>
+</body>
+
+</html>

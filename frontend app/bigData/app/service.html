@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css">
+    <link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+    <link href="vendor/owl-carousel/assets/owl.carousel.css" rel="stylesheet" />
+    <link rel="icon" href="netpace-icon.ico" type="image/x-icon" sizes="16x16">
+    <link rel="stylesheet" ng-href="{{me.current.parent}}">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+
+
+</head>
+
+<body class="nav-md">
+    <form method="post" action="http://192.168.1.109:8080/HiveRest/rest/saveOrUpdatePatientData">
+        <labl>Patient Name</labl> : <input name="personName" type="text" placeholder="Enter Patient's Name" />
+        <labl>Patient Age</labl> : <input name="age" type="text" />
+        <labl>Patient contact</labl> : <input name="contact" type="text" />
+        <labl>Patient Date of Birth</labl> : <input name="dob" type="text" />
+        <labl>Patient gender</labl> : <input name="gender" type="text" />
+        <labl>Patient maritalStatus</labl> : <input name="maritalStatus" type="text" />
+        <labl>Patient Language</labl> : <input name="pLanguage" type="text" />
+        <labl>Patient race</labl> : <input name="race" type="text" />
+        <labl>Patient Health Percentage</labl> : <input name="pPercent" type="text" />
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

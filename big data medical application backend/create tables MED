@@ -1,0 +1,146 @@
+CREATE TABLE addmission_data_txt
+(
+PersonID STRING,
+AddmisionID INT,
+StartDate DATE,
+EndDate DATE
+)
+row format delimited
+fields terminated by ','
+lines terminated by '\n'
+;
+CREATE TABLE addmission_data
+(
+PersonID STRING,
+AddmisionID INT,
+StartDate DATE,
+EndDate DATE
+)
+clustered by (PersonID) into 2 buckets stored as orc TBLPROPERTIES('transactional'='true');
+
+CREATE TABLE patient_data_txt
+(
+
+PersonID STRING,
+PersonName STRING,
+gender STRING,
+dob DATE,
+race String,
+maritalStatus String,
+pLanguage String,
+pPercent DOUBLE,
+age INT,
+contact String
+)
+row format delimited fields terminated by ',' lines terminated by '\n';
+
+CREATE TABLE patient_data
+(
+
+PersonID STRING,
+PersonName STRING,
+gender STRING,
+dob DATE,
+race String,
+maritalStatus String,
+pLanguage String,
+pPercent DOUBLE,
+age INT,
+contact String
+)
+clustered by (PersonID) into 10 buckets stored as orc TBLPROPERTIES('transactional'='true') ;
+
+CREATE TABLE patient_vitals_txt
+(
+
+PersonID STRING,
+height DOUBLE,
+weight DOUBLE,
+pulse DOUBLE,
+bpresU DOUBLE,
+bpresD DOUBLE,
+btemp DOUBLE,
+Vdate DATE
+)
+row format delimited
+fields terminated by ','
+lines terminated by '\n'
+;
+
+CREATE TABLE patient_vitals
+(
+
+PersonID STRING,
+height DOUBLE,
+weight DOUBLE,
+pulse DOUBLE,
+bpresU DOUBLE,
+bpresD DOUBLE,
+btemp DOUBLE,
+Vdate DATE
+)
+clustered by (PersonID) into 10 buckets stored as orc TBLPROPERTIES('transactional'='true') ;
+
+CREATE TABLE lab_data_txt
+(
+
+PersonID STRING,
+AddmisionID INT,
+labName String,
+labValue DOUBLE,
+labUnits String,
+Ldate DATE
+)
+row format delimited
+fields terminated by ','
+lines terminated by '\n'
+;
+
+CREATE TABLE lab_data
+(
+
+PersonID STRING,
+AddmisionID INT,
+labName String,
+labValue DOUBLE,
+labUnits String,
+Ldate DATE
+)
+clustered by (PersonID) into 10 buckets stored as orc TBLPROPERTIES('transactional'='true') ;
+
+CREATE TABLE diagnosis_data_txt
+(
+PersonID STRING,
+AddmisionID INT,
+dcode String,
+disgnosis String
+)
+row format delimited
+fields terminated by ','
+lines terminated by '\n'
+;
+CREATE TABLE diagnosis_data
+(
+PersonID STRING,
+AddmisionID INT,
+dcode String,
+disgnosis String
+)
+clustered by (PersonID) into 10 buckets stored as orc TBLPROPERTIES('transactional'='true') ;
+
+load data local inpath '/home/cloudera/Desktop/a_data.csv' OVERWRITE INTO TABLE addmission_data_txt;
+INSERT INTO TABLE addmission_data SELECT * FROM addmission_data_txt;
+
+load data local inpath '/home/cloudera/Desktop/p_data.csv' OVERWRITE INTO TABLE patient_data_txt;
+INSERT INTO TABLE patient_data SELECT * FROM patient_data_txt;
+
+load data local inpath '/home/cloudera/Desktop/p_vitals.csv' OVERWRITE INTO TABLE patient_vitals_txt;
+INSERT INTO TABLE patient_vitals SELECT * FROM patient_vitals_txt;
+
+load data local inpath '/home/cloudera/Desktop/l_data.csv' OVERWRITE INTO TABLE lab_data_txt;
+INSERT INTO TABLE lab_data SELECT * FROM lab_data_txt;
+
+load data local inpath '/home/cloudera/Desktop/d_data.csv' OVERWRITE INTO TABLE diagnosis_data_txt;
+INSERT INTO TABLE diagnosis_data SELECT * FROM diagnosis_data_txt;
+
+
